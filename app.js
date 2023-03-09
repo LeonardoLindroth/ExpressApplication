@@ -2,11 +2,10 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
-app.get("/", (req, res) => {
-    res.status(200);
-    res.send("Olá");
-});
+app.use("/assets", express.static("web/public"));
+
+app.use(express.static("web/views"));
 
 app.listen(port, () => {
-    console.log("server initiated");
+    console.log("Initializing Server");
 });
